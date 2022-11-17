@@ -1,0 +1,43 @@
+patch.linewidth: 0.5
+patch.facecolor: 348ABD  # blue
+patch.edgecolor: EEEEEE
+patch.antialiased: True
+
+lines.solid_capstyle: round
+
+
+font.size: 12.0
+font.family: Trebuchet MS
+text.color: 575757
+
+axes.facecolor: none
+axes.edgecolor: 575757
+axes.spines.left   : True   # display axis spines
+axes.spines.bottom : True
+axes.spines.top    : False
+axes.spines.right  : False
+axes.linewidth: 1
+axes.grid: True
+axes.titlesize: x-large
+axes.labelsize: large
+axes.labelcolor: 575757
+axes.axisbelow: True       # grid/ticks are below elements (e.g., lines, text)
+
+axes.prop_cycle: cycler('color', ['0891b2', '6e6f73', '295e7e', '670f31', '98b21c', '9a9a9a', '3ead92'])
+xtick.color: 575757
+xtick.direction: out
+xtick.labelsize : medium
+xtick.major.width: 1
+xtick.major.size: 4      # major tick size in points
+
+ytick.color: 575757
+ytick.direction: out
+ytick.labelsize : medium
+ytick.major.width: 1
+ytick.major.size: 4
+
+grid.color: none
+
+figure.facecolor: none
+figure.edgecolor: 0.50
+figure.dpi: 125      # figure dots per inch
