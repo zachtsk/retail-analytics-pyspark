@@ -1,0 +1,136 @@
+version: "0001"
+
+run_info:
+  run_fmt: "{version}__run_%Y%m%d_%H%M%S"
+  run_history: /datalake/run_history/
+
+logging:
+  logging_path: /datalake/logs/dev.parquet
+  level: 20
+  #  format: "%(asctime)s: [%(levelname)s]: %(pathname)s:%(lineno)s: %(message)s" # Long logging msg
+  format: "%(asctime)s: [%(levelname)s]: %(lineno)s: %(message)s"
+  datefmt: "%Y-%m-%d %H:%M:%S"
+
+# REF data types: https://spark.apache.org/docs/latest/sql-ref-datatypes.html
+data:
+  raw: # Schema
+    trx: # IO
+      filepath: /datalake/raw/dh_transactions.csv.gz
+      filetype: csv.gz
+      schema:
+        type: struct
+        fields:
+          - name: week_end_date
+            type: date
+            nullable: true
+          - name: store_num
+            type: integer
+            nullable: true
+          - name: upc
+            type: string
+            nullable: true
+          - name: units
+            type: float
+            nullable: true
+          - name: visits
+            type: float
+            nullable: true
+          - name: hhs
+            type: float
+            nullable: true
+          - name: spend
+            type: float
+            nullable: true
+          - name: price
+            type: float
+            nullable: true
+          - name: base_price
+            type: float
+            nullable: true
+          - name: feature
+            type: float
+            nullable: true
+          - name: display
+            type: float
+            nullable: true
+          - name: tpr_only
+            type: float
+            nullable: true
+  standardized:
+    trx:
+      filepath: /datalake/std/dh_transactions.parquet
+      filetype: parquet
+  curated:
+    store_cluster:
+      filepath: /datalake/curated/store_clusters.parquet
+      filetype: parquet
+    model_data:
+      filepath: /datalake/curated/model_data.parquet
+      filetype: parquet
+    model_results:
+      filepath: /datalake/curated/model_results.parquet
+      filetype: parquet
+
+jobs:
+
+  standardize_files:
+    io_sources:
+      - in_schema: raw
+        out_schema: standardized
+        source: trx
+
+  make_store_banner_clusters:
+    in_schema: standardized
+    in_source: trx
+    out_schema: curated
+    out_source: store_cluster
+    groupby:
+      - store_num
+    exprs:
+      - sql: sum(spend)/count(distinct week_end_date)
+        alias: avg_weekly_spend
+      - sql: count(distinct upc)
+        alias: unique_upcs
+      - sql: sum(case when feature=1 or display=1 or tpr_only = 1 then spend end)/sum(spend)
+        alias: pct_promo_sales
+    cluster_col_name: store_cluster
+
+  make_model_data:
+    trx_schema: standardized
+    trx_source: trx
+    store_schema: curated
+    store_source: store_cluster
+    write_schema: curated
+    write_source: model_data
+    sql_groups:
+      - upc
+      - store_cluster
+      - week_end_date
+    sql_exprs:
+      units: sum(units)
+      log_units: log(sum(units))
+      spend: sum(spend)
+      price: sum(spend)/sum(units)
+      log_price: log(sum(spend)/sum(units))
+      display: avg(display)
+      feature: avg(feature)
+      tpr: avg(tpr_only)
+      is_promo: max(case when greatest(display,feature,tpr_only)>0 then 1 else 0 end)
+
+  make_model_training:
+    model_data_schema: curated
+    model_data_source: model_data
+    write_schema: curated
+    write_source: model_results
+    model_groups:
+      - upc
+      - store_cluster
+    model_target:
+      - log_units
+    model_features:
+      - log_price
+      - display
+      - feature
+      - tpr
+    model_result_exprs:
+      yhat_units: exp(  (log_price*price_coef) + (display*display_coef) + (feature*feature_coef) + (tpr*tpr_coef) + intercept  )
