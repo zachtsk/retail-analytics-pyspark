@@ -1,4 +1,4 @@
-FROM jupyter/pyspark-notebook
+FROM jupyter/pyspark-notebook:2021-10-18
 
 # Create directory for project
 USER root
