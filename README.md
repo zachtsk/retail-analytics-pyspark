@@ -94,7 +94,7 @@ This repo uses a few specific PySpark conventions:
 * Some naming conventions for methods I generally use:
   - `make_xyz`: Method takes single dataframe param, performs transformation, returns modified dataframe
   - `produce_xyz`: Method takes multiple dataframes, performs joins/tranformations, returns new blended dataframe
-  - `apply_xyz`: Method primarily acts to filter dataset
+  - `filter_xyz`: Method to filter dataset based on some criteria
   
 @TODO example notebook
 
