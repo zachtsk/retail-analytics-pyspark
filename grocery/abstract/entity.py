@@ -6,7 +6,7 @@ from pathlib import Path
 import yaml
 from pyspark.sql import SparkSession, functions as F
 
-from pgsrc.utils.log import entity_log
+from grocery.utils.log import entity_log
 
 
 class Entity(ABC):

@@ -1,9 +1,9 @@
-from pgsrc.abstract.entity import Entity
+from grocery.abstract.entity import Entity
 from pydantic import PrivateAttr
 from pyspark.sql import SparkSession
 
-from pgsrc.utils.log import log, entity_log
-from pgsrc.utils.io import read_spark_data, write_spark_data
+from grocery.utils.log import log, entity_log
+from grocery.utils.io import read_spark_data, write_spark_data
 
 
 class StandardizeFiles(Entity):

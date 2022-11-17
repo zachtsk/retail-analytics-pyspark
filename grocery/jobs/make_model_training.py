@@ -2,13 +2,13 @@ from pyspark.sql.types import StructField, FloatType, StructType, Row
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-from pgsrc.abstract.entity import Entity
+from grocery.abstract.entity import Entity
 from pyspark.sql import functions as F
 
-from pgsrc.jobs.make_model_data import MakeModelData
-from pgsrc.utils.dataframe import collect_group
-from pgsrc.utils.log import entity_log
-from pgsrc.utils.io import read_spark_data, write_spark_data
+from grocery.jobs.make_model_data import MakeModelData
+from grocery.utils.dataframe import collect_group
+from grocery.utils.log import entity_log
+from grocery.utils.io import read_spark_data, write_spark_data
 
 
 class MakeModelTraining(Entity):

@@ -2,7 +2,7 @@ import json
 import os
 
 from zipfile import ZipFile
-from pgsrc.utils.log import log
+from grocery.utils.log import log
 from functools import reduce  # For Python 3.x
 
 import yaml

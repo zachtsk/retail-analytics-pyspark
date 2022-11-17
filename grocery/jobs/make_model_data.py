@@ -1,8 +1,8 @@
-from pgsrc.abstract.entity import Entity
+from grocery.abstract.entity import Entity
 from pyspark.sql import functions as F
-from pgsrc.jobs.make_store_clusters import MakeStoreClusters
-from pgsrc.utils.log import entity_log
-from pgsrc.utils.io import read_spark_data, write_spark_data
+from grocery.jobs.make_store_clusters import MakeStoreClusters
+from grocery.utils.log import entity_log
+from grocery.utils.io import read_spark_data, write_spark_data
 
 
 class MakeModelData(Entity):

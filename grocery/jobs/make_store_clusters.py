@@ -3,10 +3,10 @@ from pyspark.ml.feature import MinMaxScaler
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.clustering import KMeans
 from pyspark.ml.evaluation import ClusteringEvaluator
-from pgsrc.abstract.entity import Entity
-from pgsrc.jobs.standardize_files import StandardizeFiles
-from pgsrc.utils.io import read_spark_data, write_spark_data
-from pgsrc.utils.log import log, entity_log
+from grocery.abstract.entity import Entity
+from grocery.jobs.standardize_files import StandardizeFiles
+from grocery.utils.io import read_spark_data, write_spark_data
+from grocery.utils.log import log, entity_log
 
 
 class MakeStoreClusters(Entity):
