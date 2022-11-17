@@ -11,7 +11,7 @@ services:
     working_dir: /workspace
     volumes:
       - ./notebooks:/workspace/notebooks
-      - ./pgsrc:/workspace/pgsrc
+      - ./grocery:/workspace/grocery
       - ./scripts:/workspace/scripts
       - ./tests:/workspace/tests
       - ./datalake:/datalake
