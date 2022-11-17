@@ -59,8 +59,7 @@ Once you're finished and you want to spin everything down `docker-compose down`
 * __Jobs__ are where all of the core data transformations take place. These are used for managing data & models.
 * __Pipelines__ organize and run __Jobs__
 * __Utils__ help support __Jobs__. These are re-usable functions.
-* __Config__ are YAML files containing project inputs. DO NOT INCLUDE ANY SENSITIVE DATA (PASSWORDS, etc) 
-* (TODO) __Operators__ are IO specific classes which help for managing data integration across platforms. For example, you may have a Databricks operator, a SQL operator, etc. 
+* __Config__ are YAML files containing project inputs. (does not include any sensitive data/passwords/etc)  
 
 #### Other items
 * __Scripts__ contain container-level code used to manage the execution environment. For example, there is a script used for re-building the `grocery` python package that is used throughout the repository.
