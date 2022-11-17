@@ -15,8 +15,8 @@ A PySpark Project Skeleton
 # Project Structure
 
     retail-pyspark              
-       ├── datalake           
-       |    └── dh_transactions.csv.gz    # Example dataset
+       ├── datalake                       # Usually this dir would be gitignored. Don't want to save flat files to repo. 
+       |    └── dh_transactions.csv.gz    # Example dataset for demonstration
        ├── notebooks                      # Pyspark Notebooks
        ├── grocery  
        |    ├── abstract                  # For abstract classes to be inherited
