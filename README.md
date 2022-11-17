@@ -80,7 +80,7 @@ In this repo, the convention for each job is that there is a `run` method, along
 
 @TODO example notebook
 
-## Use PySpark and UDFs conventions
+## PySpark and UDFs conventions
 
 This repo uses a few specific PySpark conventions:
 * Generally default to using `F.expr(<spark sql>)` for column calculations
