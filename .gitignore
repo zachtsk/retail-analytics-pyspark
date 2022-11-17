@@ -2,3 +2,4 @@
 **/datalake/**
 **/.ipynb_checkpoints/**
 *.pyc
+**/pgsrc.egg-info/**
