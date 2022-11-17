@@ -72,13 +72,9 @@ Within `grocery.abstract` there is a general `Entity` class that can be extended
 
 It must be initialized with at least a __spark instance__, and a __config dictionary__. 
 
-@TODO example notebook
-
 ## Jobs all have a `run` method
 
 In this repo, the convention for each job is that there is a `run` method, along with a `run_safe` method which executes all dependencies first.
-
-@TODO example notebook
 
 ## PySpark and UDFs conventions
 
@@ -95,8 +91,6 @@ This repo uses a few specific PySpark conventions:
   - `make_xyz`: Method takes single dataframe param, performs transformation, returns modified dataframe
   - `produce_xyz`: Method takes multiple dataframes, performs joins/tranformations, returns new blended dataframe
   - `filter_xyz`: Method to filter dataset based on some criteria
-  
-@TODO example notebook
 
 # Make Commands
 
