@@ -1,4 +1,4 @@
-import pgsrc
+import grocery
 import os
 import yaml
 
@@ -6,6 +6,6 @@ import yaml
 def test_config_import():
     config_name = 'develop.yml'
     try:
-        yaml.safe_load(open(os.path.join(pgsrc.__path__[0], f'./config/{config_name}')))
+        yaml.safe_load(open(os.path.join(grocery.__path__[0], f'./config/{config_name}')))
     except:
         print(f"Could not import config [{config_name}]")

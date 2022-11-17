@@ -1,4 +1,4 @@
-from pgsrc.utils.io import init_spark
+from grocery.utils.io import init_spark
 from pyspark.sql import Row
 
 

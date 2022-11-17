@@ -1,6 +1,6 @@
 import shutil
 
-from pgsrc.utils.io import init_spark, read_spark_data, write_spark_data
+from grocery.utils.io import init_spark, read_spark_data, write_spark_data
 
 
 def test_read_df():
