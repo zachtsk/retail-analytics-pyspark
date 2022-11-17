@@ -1,8 +1,5 @@
 flask
 requests
-SQLAlchemy
-psycopg2-binary
 pyspark
-pyspark-stubs
 pytest
 pydantic
