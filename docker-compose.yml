@@ -1,0 +1,18 @@
+version: "3"
+services:
+  docker_jupyter:
+    container_name: docker_jupyter
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: pyspark-notebook-custom
+    ports:
+      - 8889:8888
+    working_dir: /workspace
+    volumes:
+      - ./notebooks:/workspace/notebooks
+      - ./pgsrc:/workspace/pgsrc
+      - ./scripts:/workspace/scripts
+      - ./tests:/workspace/tests
+      - ./datalake:/datalake
+    command: start.sh jupyter notebook --NotebookApp.token=''
