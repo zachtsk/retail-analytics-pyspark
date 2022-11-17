@@ -18,7 +18,7 @@ A PySpark Project Skeleton
        ├── datalake           
        |    └── dh_transactions.csv.gz    # Example dataset
        ├── notebooks                      # Pyspark Notebooks
-       ├── pgsrc  
+       ├── grocery  
        |    ├── abstract                  # For abstract classes to be inherited
        |    |    └── entity.py            
        |    ├── config                    # For various configuration files
@@ -63,13 +63,13 @@ Once you're finished and you want to spin everything down `docker-compose down`
 * (TODO) __Operators__ are IO specific classes which help for managing data integration across platforms. For example, you may have a Databricks operator, a SQL operator, etc. 
 
 #### Other items
-* __Scripts__ contain container-level code used to manage the execution environment. For example, there is a script used for re-building the `pgsrc` python package that is used throughout the repository.
+* __Scripts__ contain container-level code used to manage the execution environment. For example, there is a script used for re-building the `grocery` python package that is used throughout the repository.
 * __Tests__ contain unit + integration tests. 
 
 
 ## Jobs inherit the Entity class
 
-Within `pgsrc.abstract` there is a general `Entity` class that can be extended to manage config information, spark instances, and utilize some helper methods.
+Within `grocery.abstract` there is a general `Entity` class that can be extended to manage config information, spark instances, and utilize some helper methods.
 
 It must be initialized with at least a __spark instance__, and a __config dictionary__. 
 
@@ -90,7 +90,7 @@ This repo uses a few specific PySpark conventions:
   2. The Right side dataset "joining columns"  are __identically named to it's matching columns in the source data__.
   3. The Right side dataset only __includes additional columns explicitly__ (use a `select` method before joining). Anything that might be duplicated or not being used should be dropped before joining 
 * Use list unpacking within grouping + aggregating commands e.g. `df.groupby(*group_ls).agg(*agg_ls)`
-* Utilize [config file](https://github.gamma.bcg.com/Polke-Zach/retail-pyspark/blob/main/pgsrc/config/develop.yml) for data source io info, including schema info. Using helper functions [`read_spark_data`](https://github.gamma.bcg.com/Polke-Zach/retail-pyspark/blob/7d6e0f3b2c29c65ac987572d60abe9092faf7d1a/pgsrc/utils/io.py#L27) and [`write_spark_data`](https://github.gamma.bcg.com/Polke-Zach/retail-pyspark/blob/7d6e0f3b2c29c65ac987572d60abe9092faf7d1a/pgsrc/utils/io.py#L50).
+* Utilize **config_file** for data source io info, including schema info. Using helper functions `read_spark_data` and `write_spark_data`.
 * Try to separate job into a series of logical datasets, each being created by a single purpose function. 
 * Some naming conventions for methods I generally use:
   - `make_xyz`: Method takes single dataframe param, performs transformation, returns modified dataframe
