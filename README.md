@@ -12,6 +12,21 @@ A PySpark Project Skeleton
   
 `docker run --rm -v c:/Users:/data alpine ls /data`
 
+# Getting Started
+
+To get started run `docker-compose up -d --build`
+
+Then navigate to http://localhost:8889/tree/notebooks
+
+Once you're finished and you want to spin everything down `docker-compose down`
+
+# Insights
+With Spark, we can fit many models in parallel. In this example, each individual store_cluster+product combination is fit with a linear regression, using the following features: `price`,`store_display_flag`,`store_feature_flag`,`tpr_flag`
+
+In fast-moving consumer retail, it's not uncommon for this limited set of features to capture a strong signal in predicting how well an item will sell.
+
+![image](https://user-images.githubusercontent.com/109352381/203577938-bce0944e-7c85-4889-b88c-9bc722c8b78a.png)
+
 # Project Structure
 
     retail-pyspark              
@@ -43,21 +58,6 @@ A PySpark Project Skeleton
        ├── docker-compose.yml
        ├── Dockerfile
        └── Makefile                       # `make` command shortcuts
-
-# Getting Started
-
-To get started run `docker-compose up -d --build`
-
-Then navigate to http://localhost:8889/tree/notebooks
-
-Once you're finished and you want to spin everything down `docker-compose down`
-
-# Model Insights
-With Spark, we can fit many models in parallel. In this example, each individual store_cluster+product combination is fit with a linear regression, using the following features: `price`,`store_display_flag`,`store_feature_flag`,`tpr_flag`
-
-In fast-moving consumer retail, it's not uncommon for this limited set of features to capture a strong signal in predicting how well an item will sell.
-
-![image](https://user-images.githubusercontent.com/109352381/203577938-bce0944e-7c85-4889-b88c-9bc722c8b78a.png)
 
 # Design Patterns used in this repo
 
