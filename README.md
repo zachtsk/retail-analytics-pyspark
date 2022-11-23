@@ -1,5 +1,5 @@
 # Retail Analytics with PySpark
-A PySpark Project Skeleton
+Spark-ML notebooks for clustering brick&mortar stores, forecasting sales, and learning price elasticities.
  
 # Prerequisites
 * Install **Git**
