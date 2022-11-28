@@ -95,9 +95,9 @@ This repo uses a few specific PySpark conventions:
 * Utilize **config_file** for data source io info, including schema info. Using helper functions `read_spark_data` and `write_spark_data`.
 * Try to separate job into a series of logical datasets, each being created by a single purpose function. 
 * Some naming conventions for methods I generally use:
-  - `make_xyz`: Method takes single dataframe param, performs transformation, returns modified dataframe
-  - `produce_xyz`: Method takes multiple dataframes, performs joins/tranformations, returns new blended dataframe
-  - `filter_xyz`: Method to filter dataset based on some criteria
+  - `def make_xyz(df)`: Method takes single dataframe param, performs transformation, returns modified dataframe
+  - `def produce_xyz(df_a, df_b)`: Method takes multiple dataframes, performs joins/tranformations, returns new blended dataframe
+  - `def filter_xyz(df)`: Method to filter dataset based on some criteria
 
 # Make Commands
 
