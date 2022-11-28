@@ -90,7 +90,7 @@ This repo uses a few specific PySpark conventions:
 * When performing joins:
   1. Left side of the join should be the source data
   2. The Right side dataset "joining columns"  are __identically named to it's matching columns in the source data__.
-  3. The Right side dataset only __includes additional columns explicitly__ (use a `select` method before joining). Anything that might be duplicated or not being used should be dropped before joining 
+  3. The Right side dataset __only includes explicitly selected new columns__ (use a `select` method before joining). Anything that might be duplicated or not being used should be dropped before joining 
 * Use list unpacking within grouping + aggregating commands e.g. `df.groupby(*group_ls).agg(*agg_ls)`
 * Utilize **config_file** for data source io info, including schema info. Using helper functions `read_spark_data` and `write_spark_data`.
 * Try to separate job into a series of logical datasets, each being created by a single purpose function. 
