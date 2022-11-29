@@ -2,8 +2,6 @@
 Spark-ML notebooks for clustering brick&mortar stores, forecasting sales, and learning price elasticities.
  
 # Prerequisites
-* Install **Git**
-    - https://git-scm.com/downloads
 * Install **Docker**
     - Mac: https://docs.docker.com/docker-for-mac/install/
     - Windows: https://docs.docker.com/docker-for-windows/install/
