@@ -25,7 +25,9 @@ Spark is a great tool for performing memory or compute-heavy data transformation
 
 In fast-moving consumer retail, it's not uncommon for this limited set of features to capture a strong signal in predicting how well an item will sell.
 
-![image](https://user-images.githubusercontent.com/109352381/203577938-bce0944e-7c85-4889-b88c-9bc722c8b78a.png)
+Here are a few example predictions for top-selling products:
+
+![brave_F89paTD7id](https://user-images.githubusercontent.com/109352381/204587757-4c3f6ab8-70e1-4a78-953d-a0febf3c46bd.png)
 
 # Project Structure
 
