@@ -23,7 +23,7 @@ Once you're finished and you want to spin everything down `docker-compose down`
 # Insights
 Spark is a great tool for performing memory or compute-heavy data transformations. For data science applications, it also simplifies the process of training of large ensemble models or creating many individual models in parallel. In this example, thousands of individual store_cluster+product linear regression models are fit, using the following features: `price`,`store_display_flag`,`store_feature_flag`,`tpr_flag`
 
-In fast-moving consumer retail, it's not uncommon for this limited set of features to capture a strong signal in predicting how well an item will sell.
+In fast-moving consumer retail, it's not uncommon for these few key features to capture a strong signal in predicting how well an item will sell.
 
 Here are a few example predictions for top-selling products:
 
