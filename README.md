@@ -1,5 +1,5 @@
 # Retail Analytics with PySpark
-Spark-ML notebooks for clustering brick&mortar stores, forecasting sales, and learning price elasticities.
+Spark-ML notebooks for clustering retail stores, forecasting sales, and learning price elasticities.
  
 # Prerequisites
 * Install **Docker**
