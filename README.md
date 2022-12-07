@@ -1,20 +1,11 @@
 # Retail Analytics with PySpark
 Spark-ML notebooks for clustering retail stores, forecasting sales, and learning price elasticities.
- 
-# Prerequisites
-* Install **Docker**
-    - Mac: https://docs.docker.com/docker-for-mac/install/
-    - Windows: https://docs.docker.com/docker-for-windows/install/
-* Check that you have the latest version of Docker installed
-* If you're running Windows, check that you can mount volumes by running the command 
-  
-`docker run --rm -v c:/Users:/data alpine ls /data`
 
 # Getting Started
 
-To get started run `docker-compose up -d --build`
+To use this codebase, you'll [need to have Docker installed](https://docs.docker.com/docker-for-windows/install/). After installing Docker, you can get started by running `docker-compose up -d --build`
 
-Then navigate to http://localhost:8889/tree/notebooks
+From there, you can navigate to http://localhost:8889/tree/notebooks to check out the different example notebooks.
 
 Once you're finished and you want to spin everything down `docker-compose down`
 
